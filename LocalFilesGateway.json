@@ -1,0 +1,13 @@
+{
+    "name": "LocalFilesGateway",
+    "properties": {
+        "description": "",
+        "hostServiceUri": "https://navale-x1.middleeast.corp.microsoft.com:8050/HostServiceRemote.svc/",
+        "dataFactoryName": "labdf",
+        "status": "Online",
+        "versionStatus": "UpToDate",
+        "version": "1.7.5764.1",
+        "registerTime": "2015-11-04T10:28:08.3136407Z",
+        "lastConnectTime": "2015-11-05T11:07:43.0433444Z"
+    }
+}

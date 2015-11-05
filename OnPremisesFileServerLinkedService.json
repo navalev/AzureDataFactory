@@ -1,0 +1,14 @@
+{
+    "name": "OnPremisesFileServerLinkedService",
+    "properties": {
+        "description": "source local file system",
+        "hubName": "labdf_hub",
+        "type": "OnPremisesFileServer",
+        "typeProperties": {
+            "host": "localhost",
+            "gatewayName": "LocalFilesGateway",
+            "userId": "middleeast\\navale",
+            "password": "**********"
+        }
+    }
+}

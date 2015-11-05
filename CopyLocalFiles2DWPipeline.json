@@ -1,0 +1,46 @@
+{
+    "name": "CopyLocalFiles2DWPipeline",
+    "properties": {
+        "description": "Pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "FileSystemSource"
+                    },
+                    "sink": {
+                        "type": "SqlDWSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "OnPremisesFile"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureSqlDWOutput"
+                    }
+                ],
+                "policy": {
+                    "timeout": "00:03:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "OnpremisesFileSystemtoBlob",
+                "description": "copy activity"
+            }
+        ],
+        "start": "2015-11-04T13:00:04Z",
+        "end": "2015-11-05T14:00:00Z",
+        "isPaused": false,
+        "hubName": "labdf_hub",
+        "pipelineMode": "Scheduled"
+    }
+}

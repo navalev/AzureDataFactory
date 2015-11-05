@@ -1,0 +1,15 @@
+{
+    "name": "AzureSqlDWOutput",
+    "properties": {
+        "published": false,
+        "type": "AzureSqlDWTable",
+        "linkedServiceName": "AzureSqlDWLinkedService",
+        "typeProperties": {
+            "tableName": "sample"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        }
+    }
+}

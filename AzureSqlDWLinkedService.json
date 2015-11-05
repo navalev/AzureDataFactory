@@ -1,0 +1,11 @@
+{
+    "name": "AzureSqlDWLinkedService",
+    "properties": {
+        "description": "",
+        "hubName": "labdf_hub",
+        "type": "AzureSqlDW",
+        "typeProperties": {
+            "connectionString": "Data Source=tcp:cortanaserver.database.windows.net,1433;Initial Catalog=cortanaDW;Integrated Security=False;User ID=azure@cortanaserver;Password=**********;Connect Timeout=30;Encrypt=True"
+        }
+    }
+}
