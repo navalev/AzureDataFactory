@@ -24,7 +24,18 @@ New-AzureRmDataFactory -Location NorthEurope -Name HyrbidDF -ResourceGroupName D
 A Data Management Gateway process must run on the on premise machine to enable a hybrid pipeline. At the time of writing this article, the gateway machine can only be a Windows OS.
 The gateway MSI can be downloaded directly from the [Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=39717). 
 
-For this tutrial, create a gateway named "LocalFilesGateway" that will run on the local Windows machine. Follow [this tutorial](https://azure.microsoft.com/en-us/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#using-the-data-gateway-step-by-step-walkthrough) for a step by step walkthrough of seting up the gateway.
+For this tutrial, create a gateway named "FilesGateway" that will run on the local Windows machine. Follow [this tutorial](https://azure.microsoft.com/en-us/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#using-the-data-gateway-step-by-step-walkthrough) for a step by step walkthrough of seting up the gateway.
+
+```
+New-AzureRmDataFactoryGateway -DataFactoryName HyrbidDF -Name FilesGateway -ResourceGroupName DataFactoryGroup
+$Key = New-AzureRmDataFactoryGatewayKey -DataFactoryName hyrbiddf -GatewayName FilesGateway -ResourceGroupName DataFactoryGroup
+
+cd 'C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript'
+.\RegisterGateway.ps1 $Key.GatewayKey
+
+Get-AzureRmDataFactoryGateway -DataFactoryName HyrbidDF -ResourceGroupName DataFactoryGroup -Name FilesGateway
+
+```
 
 ## Setting Up a Hybrid Data Factory Pipeline
 
