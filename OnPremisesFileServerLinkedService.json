@@ -6,9 +6,9 @@
         "type": "OnPremisesFileServer",
         "typeProperties": {
             "host": "localhost",
-            "gatewayName": "LocalFilesGateway",
-            "userId": "middleeast\\navale",
-            "password": "**********"
+            "gatewayName": "FilesGateway",
+            "userId": "<replace with username>",
+            "password": "<replace with password>"
         }
     }
 }
