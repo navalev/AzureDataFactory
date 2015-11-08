@@ -62,7 +62,7 @@ New-AzureRmDataFactoryDataset $df -File .\AzureSqlDWOutput.json
 New-AzureRmDataFactoryPipeline $df -File .\CopyLocalFiles2DWPipeline.json
 ```
 
-Now we have a very simple pipeline that copies the contant of a CSV into a matching table in SQL Data Warehouse database.
+Now we have a very simple pipeline that copies the content of a CSV into a matching table in SQL Data Warehouse database.
 Note that this pipeline is **unalbe to process any header lines in the source file**. At the time of writing this article, FileSystemSource does not have any properties, and simply copies the files as-is. [Sources and Sinks Properties](https://msdn.microsoft.com/en-us/library/azure/dn894007.aspx)
 
 ## Resources and References
