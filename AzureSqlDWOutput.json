@@ -5,7 +5,7 @@
         "type": "AzureSqlDWTable",
         "linkedServiceName": "AzureSqlDWLinkedService",
         "typeProperties": {
-            "tableName": "sample"
+            "tableName": "<table name>"
         },
         "availability": {
             "frequency": "Hour",

@@ -5,8 +5,8 @@
         "type": "FileShare",
         "linkedServiceName": "OnPremisesFileServerLinkedService",
         "typeProperties": {
-            "fileName": "sample.csv",
-            "folderPath": "C:\\sample"
+            "fileName": "<CSV file>",
+            "folderPath": "<file path>"
         },
         "availability": {
             "frequency": "Hour",
