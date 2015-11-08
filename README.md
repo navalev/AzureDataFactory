@@ -47,7 +47,7 @@ Data Factory pipeline can be created using the Azure Preview Portal, using the "
 
 3. DataSet for SQL Data Warehouse - use AzureSqlDWOutput.json. Replace the table name with the detination table name in the SQL Data warehouse database
 
-4. DataSet for on premise File System - use OnPremisesFile.json
+4. DataSet for on premise File System - use OnPremisesFileServerLinkedService.json and replace the user and password to access the file system.
 
 5. Pipeline - copy CVS file content to SQL Warehouse table. Use CopyLocalFiles2DWPipeline.json and set a valid date for the start and end times.
 
@@ -61,6 +61,8 @@ New-AzureRmDataFactoryDataset $df -File .\OnPremisesFile.json
 New-AzureRmDataFactoryDataset $df -File .\AzureSqlDWOutput.json
 New-AzureRmDataFactoryPipeline $df -File .\CopyLocalFiles2DWPipeline.json
 ```
+
+![alt tag] (./images/diagram.JPG)
 
 Now we have a very simple pipeline that copies the content of a CSV into a matching table in SQL Data Warehouse database.
 Note that this pipeline is **unalbe to process any header lines in the source file**. At the time of writing this article, FileSystemSource does not have any properties, and simply copies the files as-is. [Sources and Sinks Properties](https://msdn.microsoft.com/en-us/library/azure/dn894007.aspx)
