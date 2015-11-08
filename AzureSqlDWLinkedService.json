@@ -4,7 +4,11 @@
         "description": "",
         "type": "AzureSqlDW",
         "typeProperties": {
+<<<<<<< HEAD
             "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<database name>;Integrated Security=False;User ID=<user>@<server>;Password=<password>;Connect Timeout=30;Encrypt=True"
+=======
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<SQL DW database>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
+>>>>>>> origin/master
         }
     }
 }
