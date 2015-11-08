@@ -5,7 +5,7 @@ The following overview assumes you are familiar with data factory concepts like 
 ## Prerequisites
 * Windows machine (to host the Data Management Gateway)
 * [Azure SQL Data Warehouse](https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-provision/)
-* A table in the SQL Datbase - destiantion for file copy.
+* A table in the SQL Data Warehouse Datbase - destiantion for file copy.
 
 ## Setting up a Data Factory Account
 
@@ -40,10 +40,15 @@ Get-AzureRmDataFactoryGateway -DataFactoryName HyrbidDF -ResourceGroupName DataF
 
 ## Setting Up a Hybrid Data Factory Pipeline
 Data Factory pipeline can be created using the Azure Preview Portal, using the "Author and Deploy" dashboard under the create Data Factory Account. We will create the following componants:
+
 1. Linked Service for SQL Data Warehouse - use AzureSqlDWLinkedService.json and replace the connection string 
+
 2. Linked Service for on premise File System - use OnPremisesFile.json and replace the CSV file name and path
+
 3. DataSet for SQL Data Warehouse - use AzureSqlDWOutput.json. Replace the table name with the detination table name in the SQL Data warehouse database
+
 4. DataSet for on premise File System - use OnPremisesFile.json
+
 5. Pipeline - copy CVS file content to SQL Warehouse table. Use CopyLocalFiles2DWPipeline.json
 
 You can use a powershell script to automaticly deploy the pipeline (createHybridDF.ps1):
@@ -56,6 +61,9 @@ New-AzureRmDataFactoryDataset $df -File .\OnPremisesFile.json
 New-AzureRmDataFactoryDataset $df -File .\AzureSqlDWOutput.json
 New-AzureRmDataFactoryPipeline $df -File .\CopyLocalFiles2DWPipeline.json
 ```
+
+Now we have a very simple pipeline that copies the contant of a CSV into a matching table in SQL Data Warehouse database.
+Note that this pipeline is **unalbe to process any header lines in the source file**. At the time of writing this article, FileSystemSource does not have any properties, and simply copies the files as-is. [Sources and Sinks Properties](https://msdn.microsoft.com/en-us/library/azure/dn894007.aspx)
 
 ## Resources and References
 
