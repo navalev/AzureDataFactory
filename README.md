@@ -49,7 +49,7 @@ Data Factory pipeline can be created using the Azure Preview Portal, using the "
 
 4. DataSet for on premise File System - use OnPremisesFile.json
 
-5. Pipeline - copy CVS file content to SQL Warehouse table. Use CopyLocalFiles2DWPipeline.json
+5. Pipeline - copy CVS file content to SQL Warehouse table. Use CopyLocalFiles2DWPipeline.json and set a valid date for the start and end times.
 
 You can use a powershell script to automaticly deploy the pipeline (createHybridDF.ps1):
 ```
