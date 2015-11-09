@@ -5,7 +5,7 @@ The following overview assumes you are familiar with data factory concepts like 
 ## Prerequisites
 * Windows machine (to host the Data Management Gateway)
 * [Azure SQL Data Warehouse](https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-provision/)
-* A table in the SQL Data Warehouse Datbase - destiantion for file copy.
+* A table in the SQL Data Warehouse database - destiantion for file copy.
 
 ## Setting up a Data Factory Account
 
