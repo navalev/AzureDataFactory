@@ -27,6 +27,7 @@ The gateway MSI can be downloaded directly from the [Download Center](https://ww
 
 For this tutrial, create a gateway named "FilesGateway" that will run on the local Windows machine. Follow [this tutorial](https://azure.microsoft.com/en-us/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#using-the-data-gateway-step-by-step-walkthrough) for a step by step walkthrough of seting up the gateway.
 
+The gateway can be also setup using PowerShell:
 ```
 New-AzureRmDataFactoryGateway -DataFactoryName HyrbidDF -Name FilesGateway -ResourceGroupName DataFactoryGroup
 $Key = New-AzureRmDataFactoryGatewayKey -DataFactoryName hyrbiddf -GatewayName FilesGateway -ResourceGroupName DataFactoryGroup
