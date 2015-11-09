@@ -42,17 +42,17 @@ Get-AzureRmDataFactoryGateway -DataFactoryName HyrbidDF -ResourceGroupName DataF
 ## Setting Up a Hybrid Data Factory Pipeline
 Data Factory pipeline can be created using the Azure Preview Portal, using the "Author and Deploy" dashboard under the create Data Factory Account. We will create the following componants:
 
-1. Linked Service for SQL Data Warehouse - use __AzureSqlDWLinkedService.json__ and replace the connection string 
+1. Linked Service for SQL Data Warehouse - use _AzureSqlDWLinkedService.json_ and replace the connection string 
 
-2. Linked Service for on premise File System - use __OnPremisesFile.json__ and replace the CSV file name and path
+2. Linked Service for on premise File System - use _OnPremisesFile.json_ and replace the CSV file name and path
 
-3. DataSet for SQL Data Warehouse - use __AzureSqlDWOutput.json__. Replace the table name with the detination table name in the SQL Data warehouse database
+3. DataSet for SQL Data Warehouse - use _AzureSqlDWOutput.json_. Replace the table name with the detination table name in the SQL Data warehouse database
 
-4. DataSet for on premise File System - use __OnPremisesFileServerLinkedService.jso__n and replace the user and password to access the file system.
+4. DataSet for on premise File System - use _OnPremisesFileServerLinkedService.json_ and replace the user and password to access the file system.
 
-5. Pipeline - copy CVS file content to SQL Warehouse table. Use __CopyLocalFiles2DWPipeline.json__ and set a valid date for the start and end times.
+5. Pipeline - copy CVS file content to SQL Warehouse table. Use _CopyLocalFiles2DWPipeline.json_ and set a valid date for the start and end times.
 
-You can use a powershell script to automaticly deploy the pipeline (script __createHybridDF.ps1__):
+You can use a powershell script to automaticly deploy the pipeline (script _createHybridDF.ps1_):
 ```
 $df=Get-AzureRmDataFactory -ResourceGroupName DataFactoryGroup -Name HyrbidDF 
 
