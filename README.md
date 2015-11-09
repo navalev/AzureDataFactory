@@ -42,17 +42,17 @@ Get-AzureRmDataFactoryGateway -DataFactoryName HyrbidDF -ResourceGroupName DataF
 ## Setting Up a Hybrid Data Factory Pipeline
 Data Factory pipeline can be created using the Azure Preview Portal, using the "Author and Deploy" dashboard under the create Data Factory Account. We will create the following componants:
 
-1. Linked Service for SQL Data Warehouse - use AzureSqlDWLinkedService.json and replace the connection string 
+1. Linked Service for SQL Data Warehouse - use __AzureSqlDWLinkedService.json__ and replace the connection string 
 
-2. Linked Service for on premise File System - use OnPremisesFile.json and replace the CSV file name and path
+2. Linked Service for on premise File System - use __OnPremisesFile.json__ and replace the CSV file name and path
 
-3. DataSet for SQL Data Warehouse - use AzureSqlDWOutput.json. Replace the table name with the detination table name in the SQL Data warehouse database
+3. DataSet for SQL Data Warehouse - use __AzureSqlDWOutput.json__. Replace the table name with the detination table name in the SQL Data warehouse database
 
-4. DataSet for on premise File System - use OnPremisesFileServerLinkedService.json and replace the user and password to access the file system.
+4. DataSet for on premise File System - use __OnPremisesFileServerLinkedService.jso__n and replace the user and password to access the file system.
 
-5. Pipeline - copy CVS file content to SQL Warehouse table. Use CopyLocalFiles2DWPipeline.json and set a valid date for the start and end times.
+5. Pipeline - copy CVS file content to SQL Warehouse table. Use __CopyLocalFiles2DWPipeline.json__ and set a valid date for the start and end times.
 
-You can use a powershell script to automaticly deploy the pipeline (createHybridDF.ps1):
+You can use a powershell script to automaticly deploy the pipeline (script __createHybridDF.ps1__):
 ```
 $df=Get-AzureRmDataFactory -ResourceGroupName DataFactoryGroup -Name HyrbidDF 
 
@@ -66,7 +66,7 @@ New-AzureRmDataFactoryPipeline $df -File .\CopyLocalFiles2DWPipeline.json
 ![alt tag] (./images/diagram.JPG)
 
 Now we have a very simple pipeline that copies the content of a CSV into a matching table in SQL Data Warehouse database.
-Note that this pipeline is **unalbe to process any header lines in the source file**. At the time of writing this article, FileSystemSource does not have any properties, and simply copies the files as-is. [Sources and Sinks Properties](https://msdn.microsoft.com/en-us/library/azure/dn894007.aspx)
+Note that this pipeline is **unable to process any header lines in the source file**. At the time of writing this article, FileSystemSource does not have any properties, and simply copies the files as-is. [Sources and Sinks Properties](https://msdn.microsoft.com/en-us/library/azure/dn894007.aspx)
 
 ## Resources and References
 
